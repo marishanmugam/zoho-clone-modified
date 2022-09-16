@@ -24,7 +24,7 @@
             <div>
                 <input type="button" value="Add New Toll" onclick="show()">
                 <input type="button" value="Add Vechile Entry" onclick=showNew()>
-                <input type="button" value="View all tolls">
+                <a href="./viewall.html"><input type="button" value="View all tolls"></a>
             </div>
         </div>
 
@@ -107,22 +107,28 @@
     <div class="new-vechhile-container">
         <i class="close-new"><img src="./close.png" style="height:20px;float:right; margin-bottom: 10px;cursor: pointer;" alt=""></i>
         <h2>Add New Entry</h2>
-        <form action="">
-        <h4>Select Vechile Type<span class="star">*</span></h4>
-        <select name="" id="" class="new-entry">
+        <form action="" id="add-new-vechile">
+            <h3>Select Toll location</h3>
+                <select name="" id="select-tolls">
+                    <option value="select-toll">Select Toll</option>
+                </select>
+
+        <h3>Select Vechile Type<span class="star">*</span></h3>
+        <select name="" id="new-entry-vechile" class="new-entry">
             <option value="select vechile type">select vechile type</option>
-            <option value="Car/Jeep/Van">Car/Jeep/Van</option>
-            <option value="LCV">LCV</option>
-            <option value="Truck/Bus">Truck/Bus</option>
-            <option value="Heavy Vehicle">Heavy Vehicle</option>
+            <option value="carjeepvan">Car/Jeep/Van</option>
+            <option value="lcv">LCV</option>
+            <option value="truckbus">Truck/Bus</option>
+            <option value="heavy">Heavy Vehicle</option>
         </select>
          <h4>Vechile Number <span class="star">*</span></h4>
-        <input type="text" name="" id="vechile-no"  class='new-entry' placeholder="enter vechile number" required>
+        <input type="text" name="" id="vechile-number"  class='new-entry' placeholder="enter vechile number" required>
         <h4>Tariff <span class="star">*</span></h4>
         <input type="text" name="" id="tarriff" class='new-entry' placeholder="Tariff amount" readonly>
-        <input type="submit" value="Add Entry" onclick="closeNew()">
+        <input type="submit" value="Add Entry" id='submitbtn'>
+        <!-- onclick="addVechile()" -->
     </form>
-    </div>
+</div>
 </section>
     <script src="./app.js"></script>
 </body>

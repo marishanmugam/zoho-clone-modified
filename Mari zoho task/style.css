@@ -57,6 +57,10 @@ th {
 tr {
     border-bottom: 1px solid #ddd;
 }
+td {
+    text-align: center;
+    padding: 10px;
+}
 
 .xres-details {
     display: grid;
@@ -135,5 +139,9 @@ transition: transform 0.4s;
     margin-bottom: 20px;
 }
 .new-entry {
+    width: 90%;
+}
+
+#select-tolls {
     width: 90%;
 }
