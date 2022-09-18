@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View-all-tolls</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body  onload="displayAllTools()">
+    <div class="toll-container">
+        <header>
+            <h1>Toll Management Application</h1>
+
+        </header>
+        <div class="vechile-list">
+            <div class="vechile-container">
+                <h3>Toll Entries/Vechile Entries</h3> <hr>
+                
+                <input type="text" name="" id="searchbox" placeholder="search vechile">
+            </div>
+            <div class="buttons">
+                <a href="./index.html"><input type="button" value="Add New Toll" onclick="show()"></a>
+                <input type="button" value="Add Vechile Entry" onclick=showNew()>
+                <a href="index.html"><input type="button" value="Back to Vechile Logs" id="back-to-home"></a>
+            </div>
+        </div>
+
+    <div class="table-continer">
+        <table style="width: 100%;">
+            <tr>
+                <th>Toll Name</th>
+                <th>Car/Jeep/Van</th>
+                <th>LCV</th>
+                <th>Truck/Bus</th>
+                <th>Heavy Vechiles</th>
+                <th>Action</th>
+            </tr>
+            <tbody class="viewall-tolls-list">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="./viewall.js"></script>
+</body>
+</html>

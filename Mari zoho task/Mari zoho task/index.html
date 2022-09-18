@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toll management System</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- font awasome cdn  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="toll-container">
+        <header>
+            <h1>Toll Management Application</h1>
+
+        </header>
+        <div class="vechile-list">
+            <div class="vechile-container">
+                <h3>Toll Entries/Vechile Entries</h3> <hr>
+                <i class="icon"><img src="./filter.png" style="height:40px" alt=""></i>
+                <input type="text" name="" id="search-vechile" placeholder="search vechile" onkeyup="searchTable()">
+            </div>
+            <div>
+                <input type="button" value="Add New Toll" onclick="show()">
+                <input type="button" value="Add Vechile Entry" onclick=showNew()>
+                <a href="./viewall.html"><input type="button" value="View all tolls"></a>
+            </div>
+        </div>
+
+    <div class="table-continer">
+        <table style="width: 100%;" id="myTable">
+            <tr>
+                <th>Vechile type</th>
+                <th>Vechile Number</th>
+                <th>Date/Time</th>
+                <th>Toll Name</th>
+                <th>Tariff</th>
+            </tr>
+            <tbody class="allvechile-list">
+
+            </tbody>
+        </table>
+
+        <h3  id="noRecord" style="display:none">No Record Found</h3>
+    </div>
+</div>
+
+<div class="popup-container">
+    <div class="add-vechile">
+        <i class="close"><img src="./close.png" style="height:30px;float:right; margin-bottom: 20px;cursor: pointer;" alt=""></i>
+        <h3>Add New toll</h3>
+        <h4>Toll Name <span class="star">*</span></h4>
+        <form action="" class="toll-name">
+        <input type="text" name="" id="toll_name" placeholder="Enter Toll Name" class="toll-name" required>
+        <div class="xres-details">
+            <h4>Vechile Fare Details <span class="star">*</span></h4>
+                <div>
+                    <select name="" id="car-jeep-van">
+                        <option value="select vechile type">select vechile type</option>
+                        <option value="Car/Jeep/Van">Car/Jeep/Van</option>
+                        <option value="LCV">LCV</option>
+                        <option value="Truck/Bus">Truck/Bus</option>
+                        <option value="Heavy Vehicle">Heavy Vehicle</option>
+                    </select>
+                    <input type="text" name="" id="car-single-journey" placeholder="Single Journey" class="" required>
+                    <input type="text" name="" id="car-return-journey" placeholder="Return Journey" required>
+                </div>
+                <div>
+                    <select name="" id="lcv">
+                        <option value="select vechile type">select vechile type</option>
+                        <option value="Car/Jeep/Van">Car/Jeep/Van</option>
+                        <option value="LCV">LCV</option>
+                        <option value="Truck/Bus">Truck/Bus</option>
+                        <option value="Heavy Vehicle">Heavy Vehicle</option>
+                    </select>
+                    <input type="text" name="" id="lcv-single-journey" placeholder="Single Journey" class="" required>
+                    <input type="text" name="" id="lcv-return-journey" placeholder="Return Journey"required>
+                </div>
+                <div>
+                    <select name="" id="truck">
+                        <option value="select vechile type">select vechile type</option>
+                        <option value="Car/Jeep/Van">Car/Jeep/Van</option>
+                        <option value="LCV">LCV</option>
+                        <option value="Truck/Bus">Truck/Bus</option>
+                        <option value="Heavy Vehicle">Heavy Vehicle</option>
+                    </select>
+                    <input type="text" name="" id="truck-single-journey" placeholder="Single Journey" class="" required>
+                    <input type="text" name="" id="truck-return-journey" placeholder="Return Journey" required>
+                </div>
+                <div>
+                    <select name="" id="heavy">
+                        <option value="select vechile type">select vechile type</option>
+                        <option value="Car/Jeep/Van">Car/Jeep/Van</option>
+                        <option value="LCV">LCV</option>
+                        <option value="Truck/Bus">Truck/Bus</option>
+                        <option value="Heavy Vehicle">Heavy Vehicle</option>
+                    </select>
+                    <input type="text" name="" id="heavy-single-journey" placeholder="Single Journey" class="" required>
+                    <input type="text" name="" id="heavy-return-journey" placeholder="Return Journey" required>
+                </div>
+                <input type="submit" value="Add Details" id="add-details" onclick="close()">
+            </form>
+        </div>
+    </div>
+</div>
+
+<section class="new-vechile-entry">
+    <div class="new-vechhile-container">
+        <i class="close-new"><img src="./close.png" style="height:20px;float:right; margin-bottom: 10px;cursor: pointer;" alt=""></i>
+        <h2>Add New Entry</h2>
+        <form action="" id="add-new-vechile">
+            <h3>Select Toll location</h3>
+                <select name="" id="select-tolls">
+                    <option value="select-toll">Select Toll</option>
+                </select>
+
+                <h4>Vechile Number <span class="star">*</span></h4>
+                <input type="text" name="" id="vechile-number"  class='new-entry' placeholder="enter vechile number" required>
+        
+        <h3>Select Vechile Type<span class="star">*</span></h3>
+        <select name="" id="new-entry-vechile" class="new-entry">
+            <option value="select vechile type">select vechile type</option>
+            <option value="Car/Jeep/Van">Car/Jeep/Van</option>
+            <option value="LCV">LCV</option>
+            <option value="Truck/Bus">Truck/Bus</option>
+            <option value="Heavy Vechiles">Heavy Vehicle</option>
+        </select>
+         
+        <h4>Tariff <span class="star">*</span></h4>
+        <input type="text" name="" id="tarriff" class='new-entry' placeholder="Tariff amount" readonly>
+        <input type="submit" value="Add Entry" id='submitbtn'>
+        <!-- onclick="addVechile()" -->
+    </form>
+</div>
+</section>
+    <script src="./app.js"></script>
+</body>
+</html>

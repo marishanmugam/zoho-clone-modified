@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.toll-container{
+    width: 80%;
+    margin: 1rem auto;   
+}
+
+.vechile-list {
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.vechile-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.icon {
+    cursor: pointer;
+}
+
+input[type='text'] {
+    height: 20px;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 5px;
+    outline: none;
+}
+
+input[type='button'],input[type='submit'] {
+    padding: 12px;
+    outline: none;
+    border: none;
+    background: blue;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.table-continer {
+    margin: 2rem auto;
+}
+table {
+    border-collapse: collapse;
+}
+th {
+    background: #ddd;
+    padding: 10px;
+}
+
+tr {
+    border-bottom: 1px solid #ddd;
+}
+td {
+    text-align: center;
+    padding: 10px;
+}
+
+.xres-details {
+    display: grid;
+    margin: 1rem;
+    row-gap: 10px;
+}
+.popup-container {
+    width: 800px;
+   position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    padding: 20px;
+    border-radius: 10px;
+    background:#9FC9F3;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+display: none;
+transition: transf orm 0.4s,top 0.4s;
+}
+
+.popup-show {
+    top: 50%;
+    transform:translate(-50%,-50%) scale(1);
+    display: block;
+
+}
+.popup-container h3 {
+    text-align: center;
+}
+
+.toll-name {
+    width: 100%;
+}
+
+select {
+    width: 25%;
+    font-size: 18px;
+    height: 38px;
+    margin: 10px;
+}
+
+input[type='submit'] {
+    width: 100%;
+}
+
+.star {
+    color: red;
+}
+
+.new-vechile-entry {
+    width: 350px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    padding: 20px;
+    border-radius: 10px;
+    background:#9FC9F3;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+display: none;
+transition: transform 0.4s;
+}
+
+.new-vechile-entry-popup {
+    display:block;
+    transform: translate(-50%,-50%) scale(1);
+    top: 50%;
+}
+
+.new-vechile-entry h2 {
+    text-align: center;
+    margin: 1rem auto;
+}
+
+#vechile-no,#tarriff {
+    margin-bottom: 20px;
+}
+.new-entry {
+    width: 90%;
+}
+
+#select-tolls {
+    width: 90%;
+}
+
+.buttons {
+    display: flex;
+}
+    
