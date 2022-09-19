@@ -13,34 +13,41 @@
     <div class="toll-container">
         <header>
             <h1>Toll Management Application</h1>
-
         </header>
         <div class="vechile-list">
             <div class="vechile-container">
                 <h3>Toll Entries/Vechile Entries</h3> <hr>
-                <i class="icon"><img src="./filter.png" style="height:40px" alt=""></i>
-                <input type="text" name="" id="" placeholder="search vechile">
+                <i class="icon"><img src="./filter.png" class="filter-img" alt="">
+                    <div class="tolls-list">
+                        <ul id="tolls-lists">
+                            <!-- <li value="All">All</li> -->
+                        </ul>
+                    </div>
+                </i>
+                <input type="text" name="" id="search-vechile" placeholder="Search Vechile by number" onkeyup="searchTable()">
             </div>
-            <div>
-                <input type="button" value="Add New Toll" onclick="show()">
-                <input type="button" value="Add Vechile Entry" onclick=showNew()>
-                <a href="./viewall.html"><input type="button" value="View all tolls"></a>
-            </div>
+        <div>
+            <input type="button" value="Add New Toll" onclick="show()">
+            <input type="button" value="Add Vechile Entry" onclick=showNew()>
+            <a href="./viewall.html"><input type="button" value="View all tolls"></a>
         </div>
+    </div>
 
-    <div class="table-continer">
-        <table style="width: 100%;">
-            <tr>
-                <th>Vechile type</th>
-                <th>Vechile Number</th>
-                <th>Date/Time</th>
-                <th>Toll Name</th>
-                <th>Tariff</th>
-            </tr>
-            <tbody class="tolls-list">
+<div class="table-continer">
+    <table style="width: 100%;" id="myTable">
+        <tr>
+            <th>Vechile type</th>
+            <th>Vechile Number</th>
+            <th>Date/Time</th>
+            <th>Toll Name</th>
+            <th>Tariff</th>
+        </tr>
+            <tbody class="allvechile-list">
 
             </tbody>
-        </table>
+    </table>
+
+        <h3  id="noRecord" style="display:none">No Record Found</h3>
     </div>
 </div>
 
@@ -113,16 +120,18 @@
                     <option value="select-toll">Select Toll</option>
                 </select>
 
+                <h4>Vechile Number <span class="star">*</span></h4>
+                <input type="text" name="" id="vechile-number"  class='new-entry' placeholder="enter vechile number" required>
+        
         <h3>Select Vechile Type<span class="star">*</span></h3>
         <select name="" id="new-entry-vechile" class="new-entry">
             <option value="select vechile type">select vechile type</option>
-            <option value="carjeepvan">Car/Jeep/Van</option>
-            <option value="lcv">LCV</option>
-            <option value="truckbus">Truck/Bus</option>
-            <option value="heavy">Heavy Vehicle</option>
+            <option value="Car/Jeep/Van">Car/Jeep/Van</option>
+            <option value="LCV">LCV</option>
+            <option value="Truck/Bus">Truck/Bus</option>
+            <option value="Heavy Vechiles">Heavy Vehicle</option>
         </select>
-         <h4>Vechile Number <span class="star">*</span></h4>
-        <input type="text" name="" id="vechile-number"  class='new-entry' placeholder="enter vechile number" required>
+         
         <h4>Tariff <span class="star">*</span></h4>
         <input type="text" name="" id="tarriff" class='new-entry' placeholder="Tariff amount" readonly>
         <input type="submit" value="Add Entry" id='submitbtn'>
