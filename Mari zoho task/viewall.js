@@ -31,18 +31,20 @@ const  searchTable = () => {
     // Loop through all table rows
     for (i = 0; i < trlist.length; i++) 
         {
-          td = trlist[i].getElementsByTagName("td")[0];
-           if (td) 
-           {
-             txtValue = td.textContent || td.innerText;
-             if (txtValue.toUpperCase().indexOf(filter) > -1)
+          td = trlist[i].getElementsByTagName("td")
+          for(j = 0; j < td.length; j++)
+          {
+            if(td[j].innerHTML.toUpperCase().indexOf(filter) > -1)
             {
-              trlist[i].style.display = "";
-            } 
-            else 
-             {
-                trlist[i].style.display = 'none';            
+              var found = true;
             }
+          }
+          if(found) {
+            trlist[i].style.display = '';
+            found = false;
+          }
+          else {
+            trlist[i].style.display = 'none';
+          }
         }
-    }
 }
