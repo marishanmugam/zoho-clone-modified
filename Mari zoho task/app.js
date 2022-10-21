@@ -137,6 +137,7 @@ document.querySelector('#new-entry-vechile').addEventListener('change',()=>{
    
         let tollsName = JSON.parse(localStorage.getItem('toll'));
         let newVechiles = JSON.parse(localStorage.getItem('VechileList')) || [];
+        var flag = false;
 
         tollsName.map((it)=>{
             if(tollValue === it.toolsName.city) {
@@ -149,13 +150,15 @@ document.querySelector('#new-entry-vechile').addEventListener('change',()=>{
                             
                             if( newVechiles.length > 0 ) {
                                 newVechiles.map((item) =>{
-                                    if(item.newVechileNumber === vechileNumber  && item.dateTime <= expiry)
+                                    if(item.newVechileNumber === vechileNumber  && flag === true )
                                     {
-                                        tariffAmount = it.toolsName.prices.carjeepvan.end;   
+                                        tariffAmount = it.toolsName.prices.carjeepvan.end; 
+                                        flag = false;
                                     }
                                     else
                                     {
                                         tariffAmount = it.toolsName.prices.carjeepvan.start;
+                                       flag = true;
                                     }   
                                 }) 
                             }
@@ -167,13 +170,15 @@ document.querySelector('#new-entry-vechile').addEventListener('change',()=>{
                         let tariffAmount = it.toolsName.prices.LCV.start;
                         if(newVechiles.length > 0 ) {
                             newVechiles.map((item) =>{
-                                if(item.newVechileNumber  ===  vechileNumber && item.dateTime <= expiry)
+                                if(item.newVechileNumber  ===  vechileNumber && flag === true)
                                 {
                                     tariffAmount = it.toolsName.prices.LCV.end;
+                                    flag = false;
                                 }
                                 else
                                 {
                                     tariffAmount = it.toolsName.prices.LCV.start;
+                                    flag = true;
                                 }
                             })
                          }
@@ -186,13 +191,15 @@ document.querySelector('#new-entry-vechile').addEventListener('change',()=>{
                         if (newVechiles.length > 0 )
                         {
                             newVechiles.map((item) =>{
-                                if(item.newVechileNumber ===  vechileNumber && item.dateTime <= expiry)
+                                if(item.newVechileNumber ===  vechileNumber && flag === true)
                                     {
                                         tariffAmount = it.toolsName.prices.TruckBus.end;
+                                        flag = false;
                                     }
                                     else
                                     {
                                         tariffAmount = it.toolsName.prices.TruckBus.start;
+                                        flag = true;
                                     }
                             })
                         }
@@ -205,13 +212,15 @@ document.querySelector('#new-entry-vechile').addEventListener('change',()=>{
 
                         if(newVechiles.length > 0 ) {
                             newVechiles.map((item) =>{
-                                if(item.newVechileNumber ===  vechileNumber && item.dateTime <= expiry)
+                                if(item.newVechileNumber ===  vechileNumber && flag === true)
                                     {
                                         tariffAmount = it.toolsName.prices.heavy.end;
+                                        flag = false;
                                     }
                                     else
                                     {
                                         tariffAmount = it.toolsName.prices.heavy.start;
+                                        flag = true;
                                     }
                                 })
                             }
@@ -231,6 +240,7 @@ submitBtn.addEventListener('click',()=>{
         dateTime : today+ ' ' +currentDateTIme ,
         newTollName : document.querySelector('#select-tolls').value,
         tariff : document.querySelector("#tarriff").value,
+        entry:true,
     }
     newVechiles.push(newVechilslist);
     localStorage.setItem('VechileList',JSON.stringify(newVechiles));
