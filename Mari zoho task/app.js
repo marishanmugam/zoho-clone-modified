@@ -240,7 +240,6 @@ submitBtn.addEventListener('click',()=>{
         dateTime : today+ ' ' +currentDateTIme ,
         newTollName : document.querySelector('#select-tolls').value,
         tariff : document.querySelector("#tarriff").value,
-        entry:true,
     }
     newVechiles.push(newVechilslist);
     localStorage.setItem('VechileList',JSON.stringify(newVechiles));
@@ -275,20 +274,44 @@ const  searchTable = () => {
     // Loop through all table rows
     for (i = 0; i < trlist.length; i++) 
         {
-          td = trlist[i].getElementsByTagName("td")[1];
-           if (td) 
-           {
-             txtValue = td.textContent || td.innerText;
-             if (txtValue.toUpperCase().indexOf(filter) > -1)
-            {
-              trlist[i].style.display = "";
-            } 
-            else 
-             {
-                trlist[i].style.display = 'none';            
-            }
-        }
+          td = trlist[i].getElementsByTagName("td");
+          for(j = 0; j < td.length; j++)
+          {
+
+              if(td[j].innerHTML.toUpperCase().indexOf(filter) > -1)
+              {
+               var found = true;
+              }
+          }
+          if(found) {
+            trlist[i].style.display = '';
+            found = false;
+          }
+          else {
+            trlist[i].style.display = 'none';
+          }
+          
+        //    if (td) 
+        //    {
+        //      txtValue = td.textContent || td.innerText;
+        //      if (txtValue.toUpperCase().indexOf(filter) > -1)
+        //     {
+        //       trlist[i].style.display = "";
+        //     } 
+        //     else 
+        //      {
+        //         trlist[i].style.display = 'none';            
+        //     }
     }
+
+    // if(found) {
+        
+    //     found = false;
+    // }
+    // else 
+    //  {
+    //     trlist[i].style.display = 'none';
+    //  }
 }
 
 
