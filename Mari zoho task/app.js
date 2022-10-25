@@ -50,6 +50,7 @@ window.addEventListener('load',()=>{
     tolls.addEventListener('submit',(e)=>{
         e.preventDefault();
    
+        let tollId = 1;
         let tolls = {
             toolsName : {
                 city : tollName.value ,
@@ -79,7 +80,11 @@ window.addEventListener('load',()=>{
                  },
          
                 }
-            }
+            },
+            isDeleted: false,
+           
+            
+
          }
         tollsName.push(tolls);
         localStorage.setItem('toll',JSON.stringify(tollsName));

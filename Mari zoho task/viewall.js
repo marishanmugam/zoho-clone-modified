@@ -17,8 +17,26 @@ const displayAllTools = () =>{
 }
 
 const delToll = (index) =>{
-    toolsName.splice(index,1)
-    localStorage.setItem('toll',JSON.stringify(toolsName));
+  let curIndex = index;
+  let delList = JSON.parse(localStorage.getItem('toll'));
+  for(var i = 0 ; i < delList.length ;i++)
+  {
+    console.log(curIndex);
+    if(curIndex === index)
+    {
+      console.log(curIndex === index); 
+      delList[i].isDeleted = true;
+    }
+  }
+
+  
+  localStorage.setItem('toll',JSON.stringify(delList));
+  // if(curIndex === index)
+  //  console.log('current index') 
+  //  else 
+  //  console.log('no index'); 
+  //   // toolsName.splice(index,1)
+  //   // localStorage.setItem('toll',JSON.stringify(toolsName));
     displayAllTools();
 }
 
